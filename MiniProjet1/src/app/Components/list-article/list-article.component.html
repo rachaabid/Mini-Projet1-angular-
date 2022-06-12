@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header bg-warning text-center">List Article</div>
+  <div class="card-body">
+    <table class="table table-bordered table-sm">
+      <thead>
+        <tr>
+          <th>Article No</th>
+          <th>Name Article</th>
+          <th>Description</th>
+          <th>Categorie</th>
+          <th>Prix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let article of listArticle; let i=index">
+          <td>{{i+1}}</td>
+          <td>{{article.nameArticle}}</td>
+          <td>{{article.description}}</td>
+          <td>{{article.categorie}}</td>
+          <td>{{article.prix}}</td>
+          <td>
+            <button type="button" class="btn btn-success" (click)="update(x)">update</button>
+            <button type="button" class="btn btn-danger" (click)="deleteArticle(i)">delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

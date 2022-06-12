@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-header bg-success">Article Registration</div>
+  <div class="card-body">
+    <form *ngIf="articleForm" [formGroup]="articleForm" (ngSubmit)="addArticle()">
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="Name">Name Article</label>
+          <input type="text" class="form-control" [(ngModel)]="Article.nameArticle" placeholder="Article" formControlName="nameArticle" [ngClass]="{'is-invalid': submitted && articleForm.get('nameArticle')?.errors, 'is-valid': submitted && !articleForm.get('nameArticle')?.errors}">
+          <div class="d-block invalid-feedback" *ngIf="submitted && articleForm.get('nameArticle')?.errors?.['required']">
+            Name Article is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" [(ngModel)]="Article.description" placeholder="Description" formControlName="description" [ngClass]="{'is-invalid': submitted && articleForm.get('description')?.errors, 'is-valid': submitted && !articleForm.get('description')?.errors}">
+          <div class="d-block invalid-feedback" *ngIf="submitted && articleForm.get('description')?.errors?.['required']">
+            Description is required
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="Categorie">Categorie</label>
+          <select type="text" class="form-control" [(ngModel)]="Article.categorie" formControlName="categorie" [ngClass]="{'is-invalid': submitted && articleForm.get('categorie')?.errors, 'is-valid': submitted && !articleForm.get('categorie')?.errors}">
+            
+            <select>Select Categorie</select>
+            <option value="sport">Sport</option>
+            <option value="maison et jardin">Maison et Jardin</option>
+            <option value="jeux">Jeux</option>
+            <option value="smartphone">Smartphone</option>
+            </select>
+
+            <div class="d-block invalid-feedback" *ngIf="submitted && articleForm.get('categorie')?.errors?.['required']">
+             Categorie is required
+            </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="prix">Prix</label>
+          <input type="number" min="1" class="form-control" [(ngModel)]="Article.prix" placeholder="Prix" formControlName="prix" [ngClass]="{'is-invalid': submitted && articleForm.get('prix')?.errors, 'is-valid': submitted && !articleForm.get('prix')?.errors}">
+          <div class="d-block invalid-feedback" *ngIf="submitted && articleForm.get('prix')?.errors?.['required']">
+            Prix is required
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Add Article</button>
+    </form>
+  </div>
+</div>
