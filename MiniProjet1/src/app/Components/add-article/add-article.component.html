@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-header bg-success">Article Registration</div>
   <div class="card-body">
-    <form *ngIf="articleForm" [formGroup]="articleForm" (ngSubmit)="addArticle()">
+    <form *ngIf="articleForm" [formGroup]="articleForm">
       <div class="form-row">
         <div class="form-group col-md-3">
           <label for="Name">Name Article</label>
@@ -49,7 +49,7 @@
           </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Add Article</button>
+      <button type="button" class="btn btn-primary" (click)="addArticle()">Add Article</button>
     </form>
   </div>
 </div>

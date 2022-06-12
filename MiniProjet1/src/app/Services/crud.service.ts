@@ -6,25 +6,26 @@ import { Article } from '../article';
   providedIn: 'root'
 })
 export class CrudService {
-  Article: Article = new Article();
-  listArticle: Article [];
+  // Article: Article = new Article();
+  listArticle: Article [] = [];
   constructor(private route:Router) { 
-    this.listArticle = []; 
+   
   }
 
-  // getNewArticleId(){
-  //   const oldArticle = localStorage.getItem('listArticle');
-  //   if (oldArticle !== null){
-  //     const listArticle = JSON.stringify(oldArticle);
-  //     return listArticle.length + 1;
-  //   }
-  //   else {return 1;}
-  // }
+  ajouterArticle(article:any){
+    let listArticle = JSON.parse(localStorage.getItem('listArticle')||'[]');
+    listArticle.push(article);
+    localStorage.setItem('listArticle',JSON.stringify(listArticle));
+   this.route.navigate(['/ListArticle']);
+  }
 
-  // ajouterArticle(){
-  //   let listArticle = JSON.parse(localStorage.getItem('listArticle')||'[]');
-  //   this.listArticle.push(this.Article);
-  //   localStorage.setItem('listArticle', JSON.stringify(this.listArticle));
-  //  this.route.navigate(['/ListArticle']);
-  // }
+  getAllArticle(){
+    return JSON.parse(localStorage.getItem('listArticle')||'[]');
+  }
+
+  supprimeArticle(i:any){
+  //   this.listArticle.splice(i, 1);
+  // localStorage.setItem("listArticle", JSON.stringify(this.listArticle));
+  // this.listArticle = JSON.parse(localStorage.getItem('listArticle')||'[]');
+  }
 }

@@ -29,15 +29,11 @@ export class AddArticleComponent implements OnInit {
   }
  
 addArticle(){
-  let listArticle = JSON.parse(localStorage.getItem('listArticle')||'[]');
-    listArticle.push(this.Article);
-    localStorage.setItem('listArticle', JSON.stringify(listArticle));
-   this.route.navigate(['/ListArticle']);
-  // this.submitted = !this.submitted;
-  // if (this.articleForm?.invalid){
-  //   return
-  // } 
-  // this._crudService.ajouterArticle();
+  this.submitted = !this.submitted;
+  if (this.articleForm?.invalid){
+    return
+  } 
+  this._crudService.ajouterArticle(this.articleForm?.value);
 }
 
 }

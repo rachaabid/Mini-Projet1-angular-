@@ -6,11 +6,11 @@ import { AddArticleComponent } from './Components/add-article/add-article.compon
 import { ListArticleComponent } from './Components/list-article/list-article.component';
 
 const routes: Routes = [
-  // {path: '', redirectTo: '/Home', pathMatch: 'full'},
+  {path: '', redirectTo: '/AddArticle', pathMatch: 'full'},
   {path: 'Home', component: HomeComponent},
   {path: 'AddArticle', component: AddArticleComponent},
   {path: 'ListArticle', component: ListArticleComponent}
- 
+  // canActivate:[AuthGuard]
 ];
 
 @NgModule({

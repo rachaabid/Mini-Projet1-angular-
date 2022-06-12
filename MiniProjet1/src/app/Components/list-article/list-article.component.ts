@@ -16,14 +16,13 @@ export class ListArticleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.listArticle = JSON.parse(localStorage.getItem('listArticle')||'[]');
+    this.listArticle = this._crudService.getAllArticle();
   }
 
   deleteArticle(i: any){
-  // this._crudService.supprimerArticle(i);
-  this.listArticle.splice(i, 1);
-  localStorage.setItem("listArticle", JSON.stringify(this.listArticle));
-  this.listArticle = JSON.parse(localStorage.getItem('listArticle')||'[]');
+   this._crudService.supprimeArticle(i);
+   console.log('hello');
+  
   }
 
  
