@@ -12,6 +12,8 @@ import { RegisterComponent } from './Components/auth/components/register/registe
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './Services/auth.service';
 import { ListArticleComponent } from './Components/list-article/list-article.component';
+import { UpdateComponent } from './Components/update/update.component';
+import { ArticleFilterPipe } from './article-filter.pipe';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { ListArticleComponent } from './Components/list-article/list-article.com
     AddArticleComponent,
     LoginComponent,
     RegisterComponent,
-    ListArticleComponent
+    ListArticleComponent,
+    UpdateComponent,
+    ArticleFilterPipe
   ],
   imports: [
     BrowserModule,

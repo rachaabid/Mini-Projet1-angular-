@@ -1,6 +1,9 @@
-<div class="card">
-  <div class="card-header bg-warning text-center">List Article</div>
-  <div class="card-body">
+<div class="container">
+  <h1 class="text-center text-danger">List Article</h1>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search by article" style="width:300px" [(ngModel)]="searchArticle">
+  </div>
+  <button type="button" class="btn btn-primary" routerLink="/AddArticle">AddArticle</button>
     <table class="table table-bordered table-sm">
       <thead>
         <tr>
@@ -12,18 +15,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let article of listArticle; let i=index">
+        <tr *ngFor="let article of listArticle | articleFilter: searchArticle; let i=index">
           <td>{{i+1}}</td>
           <td>{{article.nameArticle}}</td>
           <td>{{article.description}}</td>
           <td>{{article.categorie}}</td>
           <td>{{article.prix}}</td>
           <td>
-            <button type="button" class="btn btn-success">update</button>
+            <button type="button" class="btn btn-success" routerLink="/Update/{{i}}">update</button>
             <button type="button" class="btn btn-danger" (click)="deleteArticle(i)">delete</button>
           </td>
         </tr>
       </tbody>
     </table>
-  </div>
 </div>

@@ -10,7 +10,8 @@ import { CrudService } from 'src/app/Services/crud.service';
 })
 export class ListArticleComponent implements OnInit {
   listArticle: Article [];
-  id:any;
+  x:any;
+  searchArticle: string = '';
   constructor(private _crudService: CrudService) { 
   this.listArticle = [];  
   }
@@ -21,9 +22,12 @@ export class ListArticleComponent implements OnInit {
 
   deleteArticle(i: any){
    this._crudService.supprimeArticle(i);
-   console.log('hello');
-  
+   this.ngOnInit();
   }
+ 
+ updateArticle(x:any){
+ 
+ }
 
  
 }

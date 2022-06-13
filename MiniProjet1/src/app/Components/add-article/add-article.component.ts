@@ -29,7 +29,7 @@ export class AddArticleComponent implements OnInit {
   }
  
 addArticle(){
-  this.submitted = !this.submitted;
+  this.submitted = true;
   if (this.articleForm?.invalid){
     return
   } 
