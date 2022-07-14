@@ -9,25 +9,20 @@ import { CrudService } from 'src/app/Services/crud.service';
   styleUrls: ['./list-article.component.css']
 })
 export class ListArticleComponent implements OnInit {
-  listArticle: Article [];
-  x:any;
+  listArticle: Article[];
+  x: any;
   searchArticle: string = '';
-  constructor(private _crudService: CrudService) { 
-  this.listArticle = [];  
+  constructor(private _crudService: CrudService) {
+    this.listArticle = [];
   }
 
   ngOnInit(): void {
     this.listArticle = this._crudService.getAllArticle();
   }
 
-  deleteArticle(i: any){
-   this._crudService.supprimeArticle(i);
-   this.ngOnInit();
+  deleteArticle(i: any) {
+    this._crudService.supprimeArticle(i);
+    this.ngOnInit();
   }
- 
- updateArticle(x:any){
- 
- }
 
- 
 }
